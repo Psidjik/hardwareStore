@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"/>
+<body class="d-flex flex-column h-100">
+<div th:replace="fragments/navbar">Navbar</div>
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <main class="jumbotron text-center rounded col-md-12 align-self-center pt-5">
+                <div class="justify-content-center">
+                    <h1>User Details</h1>
+                </div>
+                <div class="row bg-light rounded">
+                    <div class="col-md-6">
+                        <h2>User</h2>
+                        <h4 th:text="'Username: ' + ${userDetail.username}"></h4>
+                        <h4 th:text="'Password: ' + ${userDetail.password}"></h4>
+                        <h4 th:text="'First Name: ' + ${userDetail.firstName}"></h4>
+                        <h4 th:text="'Last Name: ' + ${userDetail.last_name}"></h4>
+                        <h4 th:text="'Role: ' + ${userDetail.role}"></h4>
+                    </div>
+                    <h2>Offers</h2>
+                    <div th:each="o : ${offers}" class="col-md-6">
+                        <h4 th:text="'ID offer: ' + ${o}"></h4>
+                        <h4><a class="btn-block" th:href="@{/offer/details/{id}(id=${o})}">Offer
+                            details</a></h4>
+                    </div>
+                    <!--                    <div class="col-md-6"><img src="/pic/employee.png" height="350px"></div>-->
+                </div>
+            </main>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/footer"/>
+</body>
+</html>
