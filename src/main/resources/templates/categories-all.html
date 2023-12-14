@@ -11,8 +11,8 @@
         <h2 class="text-center text-dark mt-5">All Categories</h2>
         <div th:each="category : ${categoriesInfos}" class="d-flex flex-column bg-text mb-3">
           <h2 th:text="'Category: ' + ${category.categoryTitle}"></h2>
-          <h4><a class="btn-block" th:href="@{/category/details/{categoryTitle}(categoryTitle=${category.categoryTitle})}">Detail
-            info</a></h4>
+<!--          <h4><a class="btn-block" th:href="@{/category/details/{categoryTitle}(categoryTitle=${category.categoryTitle})}">Detail-->
+<!--            info</a></h4>-->
         </div>
       </div>
     </div>

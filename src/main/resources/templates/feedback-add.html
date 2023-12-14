@@ -44,24 +44,24 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="client">Client</label>
-                        <select th:field="*{client.username}"
+                        <select th:field="*{client}"
                                 th:errorclass="is-invalid"
                                 class="form-select text-center" id="client" aria-describedby="clientHelp"
                                 name="client">
                             <option th:each="client : ${availableClients}" th:value="${client.username}" th:text="${client.username}"></option>
                         </select>
-                        <small th:if="${#fields.hasErrors('client.username')}" th:errors="*{client.username}" class="text-danger">Error
+                        <small th:if="${#fields.hasErrors('client')}" th:errors="*{client}" class="text-danger">Error
                             message</small>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="product">Product</label>
-                        <select th:field="*{product.productTitle}"
+                        <select th:field="*{product}"
                                 th:errorclass="is-invalid"
                                 class="form-select text-center" id="product" aria-describedby="productHelp"
                                 name="product">
                             <option th:each="product : ${availableProducts}" th:value="${product.productTitle}" th:text="${product.productTitle}"></option>
                         </select>
-                        <small th:if="${#fields.hasErrors('product.productTitle')}" th:errors="*{product.productTitle}" class="text-danger">Error
+                        <small th:if="${#fields.hasErrors('product')}" th:errors="*{product}" class="text-danger">Error
                             message</small>
                     </div>
                     <button type="submit" class="btn btn-secondary">Add Feedback</button>

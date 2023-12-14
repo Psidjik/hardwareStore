@@ -53,13 +53,13 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="category">Category</label>
-                        <select th:field="*{category.categoryTitle}"
+                        <select th:field="*{category}"
                                 th:errorclass="is-invalid"
                                 class="form-select text-center" id="category" aria-describedby="categoryHelp"
                                 name="category">
-                            <option th:each="category : ${available}" th:value="${category.categoryTitle}" th:text="${category.categoryTitle}"></option>
+                            <option th:each="category : ${available}" th:value="${category.getCategoryTitle()}" th:text="${category.getCategoryTitle()}"></option>
                         </select>
-                        <small th:if="${#fields.hasErrors('category.categoryTitle')}" th:errors="*{category.categoryTitle}" class="text-danger">Error
+                        <small th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="text-danger">Error
                             message</small>
                     </div>
                     <div class="mb-3">

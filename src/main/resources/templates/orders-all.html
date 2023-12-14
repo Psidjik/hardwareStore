@@ -10,8 +10,8 @@
             <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
                 <h2 class="text-center text-dark mt-5">All Orders</h2>
                 <div th:each="order : ${orderInfos}" class="d-flex flex-column bg-text mb-3">
-                    <h2 th:text="'Client: ' + ${order.client.username}"></h2>
-                    <h2 th:text="'Product: ' + ${order.product.productTitle}"></h2>
+                    <h2 th:text="'Client: ' + ${order.client}"></h2>
+                    <h2 th:text="'Product: ' + ${order.product}"></h2>
                     <h4 th:text="'Price: ' + ${order.price}"></h4>
                     <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger btn-sm">Delete Order</a>
                 </div>

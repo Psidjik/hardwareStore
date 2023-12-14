@@ -14,8 +14,8 @@
                     <h4 th:text="'Price: ' + ${product.price}"></h4>
                     <h4 th:text="'Article: ' + ${product.article}"></h4>
                     <h4 th:text="'Count: ' + ${product.count}"></h4>
-                    <h4 th:text="'Category: ' + ${product.category.categoryTitle}"></h4>
-                    <a th:href="@{'/product/details/{productTitle}(productTitle=${product.productTitle})}" class="btn btn-secondary btn-sm">Details</a>
+                    <h4 th:text="'Category: ' + ${product.category}"></h4>
+<!--                    <a th:href="@{'/product/details/{productTitle}(productTitle=${product.productTitle})}" class="btn btn-secondary btn-sm">Details</a>-->
                 </div>
             </div>
         </div>
