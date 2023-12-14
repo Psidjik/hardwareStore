@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 public class UserRoleServiceImpl implements UserRoleService {
     @Autowired
     UserRoleRepository userRoleRepository;
-
     @Autowired
     ModelMapper modelMapper;
 
@@ -36,6 +35,11 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
+    public List<UserRoleDto> getAllUserRole() {
+        return null;
+    }
+
+    @Override
     public UserRoleDto updateUserRoleName(String uuid, Role role) {
         UserRole userRole = userRoleRepository.findById(uuid).orElseThrow();
         userRole.setRole(role);
@@ -44,7 +48,7 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public List<UserRoleDto> getAllUserRole() {
+    public List<UserRoleDto> getAllUserRoles() {
         return userRoleRepository.findAll().stream().map(userRole -> modelMapper.map(userRole, UserRoleDto.class)).collect(Collectors.toList());
     }
 
@@ -52,4 +56,5 @@ public class UserRoleServiceImpl implements UserRoleService {
     public List<UserRoleDto> getAllUserRoleByName(String name) {
         return null;
     }
+
 }

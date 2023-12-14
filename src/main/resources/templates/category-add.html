@@ -9,22 +9,22 @@
             <div class="col-md-2"></div>
             <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
                 <div class="justify-content-center">
-                    <h1>Add Brand</h1>
+                    <h1>Add Category</h1>
                 </div>
-                <form th:action="@{/brand/add}"
+                <form th:action="@{/category/add}"
                       th:method="post"
-                      th:object="${brandDto}"
+                      th:object="${categoryModel}"
                       class="m-md-auto w-50 pb-3">
                     <div class="mb-3">
-                        <label class="form-label" for="name">Name</label>
-                        <input th:field="*{name}"
+                        <label class="form-label" for="categoryTitle">Category Title</label>
+                        <input th:field="*{categoryTitle}"
                                th:errorclass="is-invalid"
-                               type="text" class="form-control text-center" id="name" aria-describedby="nameHelp"
-                               name="name"/>
-                        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">Error
+                               type="text" class="form-control text-center" id="categoryTitle" aria-describedby="categoryTitleHelp"
+                               name="categoryTitle"/>
+                        <small th:if="${#fields.hasErrors('categoryTitle')}" th:errors="*{categoryTitle}" class="text-danger">Error
                             message</small>
                     </div>
-                    <button type="submit" class="btn btn-secondary">Add Brand</button>
+                    <button type="submit" class="btn btn-secondary">Add Category</button>
                 </form>
             </div>
         </div>

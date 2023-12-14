@@ -29,12 +29,4 @@ public class ClientViewModel {
         this.last_name = last_name;
     }
 
-    @Override
-    public String toString() {
-        return "UserViewModel{" +
-                "username='" + username + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", last_name='" + last_name + '\'' +
-                '}';
-    }
 }

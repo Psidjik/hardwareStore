@@ -14,5 +14,5 @@ public interface UserRoleService {
     List<UserRoleDto> getAllUserRoleByName(String name);
     UserRoleDto updateUserRoleName(String id, Role role);
 
-
+    List<UserRoleDto> getAllUserRoles();
 }

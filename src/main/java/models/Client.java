@@ -12,7 +12,6 @@ public class Client extends BaseEntityWithCreatModif{
     private UserRole role;
     private boolean is_active;
     private String firstName;
-    private String imageUrl;
     private String last_name;
     private String password;
     private String username;
@@ -20,12 +19,11 @@ public class Client extends BaseEntityWithCreatModif{
     private List<Feedback> feedbacks;
 
     public Client(LocalDateTime created, LocalDateTime modified, UserRole role,
-                  boolean is_active, String firstName, String imageUrl, String last_name, String password, String username,String phoneNumber) {
+                  boolean is_active, String firstName, String last_name, String password, String username,String phoneNumber) {
         super(created, modified);
         this.role = role;
         this.is_active = is_active;
         this.firstName = firstName;
-        this.imageUrl = imageUrl;
         this.last_name = last_name;
         this.password = password;
         this.username = username;
@@ -87,14 +85,6 @@ public class Client extends BaseEntityWithCreatModif{
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-    }
-    @Column(name = "image_url")
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
     @Column(name = "last_name")
     public String getLast_name() {

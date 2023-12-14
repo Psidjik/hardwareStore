@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 @Table(name = "category")
 public class Category extends BaseEntity{
-
     private String categoryTitle;
     private List<Product> products;
 
@@ -28,8 +27,6 @@ public class Category extends BaseEntity{
     public void setCategoryTitle(String categoryTitle) {
         this.categoryTitle = categoryTitle;
     }
-
-
 
     @OneToMany(mappedBy = "productTitle")
     public List<Product> getProducts() {

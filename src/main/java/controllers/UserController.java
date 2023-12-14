@@ -16,14 +16,14 @@ import service.UserService;
 public class UserController {
     private UserService userService;
 
-    @ModelAttribute("userDto")
+    @ModelAttribute("userModel")
     public ClientDto initUser() {
         return new ClientDto();
     }
 
     @GetMapping("/add")
     public String addUser(Model model){
-        model.addAttribute("availableRoles", userService.showAllRole());
+        model.addAttribute("availableRoles", userService.showRole());
         return "user-add";
     }
     @PostMapping("/add")
@@ -35,29 +35,28 @@ public class UserController {
             return "redirect:/user/add";
         }
         userService.addNewUser(userDto);
-        return "redirect:/";
+        return "redirect:/user/all";
     }
 
     @GetMapping("/all")
     String getAllUser(Model model){
-        model.addAttribute("allUsers", userService.getAllUser());
+        model.addAttribute("userInfos", userService.getAllUser());
         return "user-all";
     }
-    @GetMapping("/details/{username}")
-    String getUserByUsername(@PathVariable String username, Model model){
-        model.addAttribute("userDetail", userService.getUserByUsername(username));
-        model.addAttribute("offers", userService.getOffersByUsername(username));
-        return "user-details";
-    }
 
-    @DeleteMapping("/delete/{id}")
-    String deleteUser(@PathVariable String id){
-        userService.deleteUserById(id);
-        return "Client with id = " + id + " was deleted";}
-//    @PutMapping("/{id}/{role}")
-//    UserRoleDto updateUserRoleName(@PathVariable String id, @PathVariable  role){
-//        return userService.updateUserFirstName(id, role);
+
+//    @GetMapping("/details/{username}")
+//    String getUserByUsername(@PathVariable String username, Model model){
+//        model.addAttribute("userDetail", userService.getUserByUsername(username));
+//        model.addAttribute("offers", userService.getOffersByUsername(username));
+//        return "user-details";
 //    }
+
+//    @DeleteMapping("/delete/{id}")
+//    String deleteUser(@PathVariable String id){
+//        userService.deleteUserById(id);
+//        return "Client with id = " + id + " was deleted";}
+
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;

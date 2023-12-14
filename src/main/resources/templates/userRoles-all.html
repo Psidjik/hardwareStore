@@ -8,13 +8,11 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
-                <h2 class="text-center text-dark mt-5">All Users</h2>
-                <div th:each="a : ${userInfos}" class="d-flex flex-column bg-text mb-3">
-                    <h2 th:text="'Username: ' + ${a.username}"></h2>
-                    <h4 th:text="'Name: ' + ${a.firstName}"></h4>
-                    <h4 th:text="'Lastname: ' + ${a.last_name}"></h4>
-                    <h4><a class="btn-block" th:href="@{/user/details/{username}(username=${a.username})}">Detail
-                        info</a></h4>
+                <h2 class="text-center text-dark mt-5">All Roles</h2>
+                <div class='row mb-4 d-flex justify-content-around'>
+                    <div th:each="u : ${userRoleInfos}" class="col-md-4 d-flex flex-column bg-text mb-3 rounded">
+                        <h4 th:text="'Role Name: ' + *{u.role}"></h4>
+                    </div>
                 </div>
             </div>
         </div>

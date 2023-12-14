@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"/>
+<body class="d-flex flex-column h-100">
+<div th:replace="fragments/navbar">Navbar</div>
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
+                <h2 class="text-center text-dark mt-5">All Feedbacks</h2>
+                <div th:each="feedback : ${feedbackInfos}" class="d-flex flex-column bg-text mb-3">
+                    <h2 th:text="'Client: ' + ${feedback.client.username}"></h2>
+                    <h2 th:text="'Product: ' + ${feedback.product.productTitle}"></h2>
+                    <h4 th:text="'Rating: ' + ${feedback.rating}"></h4>
+                    <h5 th:text="'Description: ' + ${feedback.description}"></h5>
+                    <h5 th:text="'Date: ' + ${feedback.dateOfFeedback}"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/footer"/>
+</body>
+</html>

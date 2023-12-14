@@ -14,10 +14,4 @@ public class CategoryDto {
         this.categoryTitle = categoryTitle;
     }
 
-    @Override
-    public String toString() {
-        return "CategoryDto{" +
-                "categoryTitle='" + categoryTitle + '\'' +
-                '}';
-    }
 }

@@ -1,5 +1,6 @@
 package service;
 
+import dtos.CategoryDto;
 import dtos.ClientDto;
 import dtos.ProductDto;
 import dtos.views.ClientViewModel;
@@ -10,13 +11,10 @@ import java.util.List;
 
 public interface ProductService {
     void addNewProduct(ProductDto productDto);
-    List<Category> showAllCategories();
-//    ProductDto getProductById(String id);
-    void deleteUserByProductTitle(String productTitle);
-    List<ProductDto> getAllProduct();
-//    ClientDto updateUserFirstName(String id, String firstName);
-
-//    List<String> getOffersByUsername(String username);
-
+    List<ProductDto> getAllProducts();
     ProductDto getProductByProductTitle(String productTitle);
+    ProductDto updateProductCount(String productTitle, int newCount);
+    void deleteProductByProductTitle(String productTitle);
+
+    List<CategoryDto> showCategory();
 }

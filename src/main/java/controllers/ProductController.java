@@ -18,18 +18,19 @@ public class ProductController {
     private ProductService productService;
     private FeedbackService feedbackService;
 
-    @ModelAttribute("productDto")
-    public ProductDto initUser() {
+    @ModelAttribute("productModel")
+    public ProductDto initProduct() {
         return new ProductDto();
     }
 
     @GetMapping("/add")
-    public String addProduct(Model model){
-        model.addAttribute("availableCategory", productService.showAllCategories());
+    public String addProduct(Model model) {
+        model.addAttribute("available", productService.showCategory());
         return "product-add";
     }
+
     @PostMapping("/add")
-    String addProduct(@Valid ProductDto productDto, RedirectAttributes redirectAttributes, BindingResult bindingResult){
+    public String addProduct(@Valid ProductDto productDto, RedirectAttributes redirectAttributes, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("productDto", productDto);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.productDto",
@@ -37,23 +38,14 @@ public class ProductController {
             return "redirect:/product/add";
         }
         productService.addNewProduct(productDto);
-        return "redirect:/";
+        return "redirect:/product/all";
     }
 
     @GetMapping("/all")
-    String getAllUser(Model model){
-        model.addAttribute("allProducts", productService.getAllProduct());
+    public String getAllProducts(Model model) {
+        model.addAttribute("productInfos", productService.getAllProducts());
         return "product-all";
     }
-    @GetMapping("/details/{username}")
-    String getUserByProductTitle(@PathVariable String ProductTitle, Model model){
-        model.addAttribute("userDetail", productService.getClientByProductTitle(ProductTitle));
-//        model.addAttribute("offers", userService.getOffersByUsername(ProductTitle));
-        return "product-details";
-    }
-
-
-
 
     @Autowired
     public void setProductService(ProductService productService) {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"/>
+<body class="d-flex flex-column h-100">
+<div th:replace="fragments/navbar">Navbar</div>
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
+                <div class="justify-content-center">
+                    <h1>Add Order</h1>
+                </div>
+                <form th:action="@{/order/add}"
+                      th:method="post"
+                      th:object="${orderModel}"
+                      class="m-md-auto w-50 pb-3">
+                    <div class="mb-3">
+                        <label class="form-label" for="client">Client</label>
+                        <select th:field="*{client.username}"
+                                th:errorclass="is-invalid"
+                                class="form-select text-center" id="client" aria-describedby="clientHelp"
+                                name="client">
+                            <option th:each="client : ${availableClients}" th:value="${client.username}" th:text="${client.username}"></option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('client.username')}" th:errors="*{client.username}" class="text-danger">Error
+                            message</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="product">Product</label>
+                        <select th:field="*{product.productTitle}"
+                                th:errorclass="is-invalid"
+                                class="form-select text-center" id="product" aria-describedby="productHelp"
+                                name="product">
+                            <option th:each="product : ${availableProducts}" th:value="${product.productTitle}" th:text="${product.productTitle}"></option>
+                        </select>
+                        <small th:if="${#fields.hasErrors('product.productTitle')}" th:errors="*{product.productTitle}" class="text-danger">Error
+                            message</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Price</label>
+                        <input th:field="*{price}"
+                               th:errorclass="is-invalid"
+                               type="number" class="form-control text-center" id="price" aria-describedby="priceHelp"
+                               name="price"/>
+                        <small th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger">Error
+                            message</small>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Add Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/footer"/>
+</body>
+</html>

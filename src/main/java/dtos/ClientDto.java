@@ -8,12 +8,9 @@ public class ClientDto {
     private Role role;
     private boolean is_active;
     private String firstName;
-    //    private String imageUrl;
     private String last_name;
     private String password;
-//    @UniqueUsername
     private String username;
-
     private String phoneNumber;
 
 
@@ -22,7 +19,6 @@ public class ClientDto {
         this.role = role;
         this.is_active = is_active;
         this.firstName = firstName;
-//        this.imageUrl = imageUrl;
         this.last_name = last_name;
         this.password = password;
         this.username = username;
@@ -108,7 +104,6 @@ public class ClientDto {
                 ", role=" + role +
                 ", is_active=" + is_active +
                 ", firstName='" + firstName + '\'' +
-//                ", imageUrl='" + imageUrl + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
