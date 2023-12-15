@@ -9,7 +9,7 @@
             <div class="col-md-2"></div>
             <div class="jumbotron text-center rounded col-md-8 align-self-center pt-5">
                 <h2 class="text-center text-dark mt-5">All Feedbacks</h2>
-                <div th:each="feedback : ${feedbackInfos}" class="d-flex flex-column bg-text mb-3">
+                <div th:each="feedback : ${feedbackInfos}" class="d-flex flex-column bg-text mb-3"  style="border: 1px solid #000; text-align: center;">
                     <h2 th:text="'Client: ' + ${feedback.client}"></h2>
                     <h2 th:text="'Product: ' + ${feedback.product}"></h2>
                     <h4 th:text="'Rating: ' + ${feedback.rating}"></h4>
